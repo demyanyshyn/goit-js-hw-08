@@ -96,11 +96,10 @@ function showOriginalImage(event) {
   itemOpen.show();
 }
 function clickGalleryItem(event) {
-  if (gallery === event.target) {
-    return;
+  if (event.target.nodeName === 'IMG') {
+    event.preventDefault();
+    showOriginalImage(event);
   }
-  event.preventDefault();
-  showOriginalImage(event);
 }
 
 newItems = createGalleryItemsFrom(images);
